@@ -1,0 +1,33 @@
+.form {
+  text-align: center;
+  margin: auto;
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  padding: 40px 500px;
+}
+label {
+  color: darkorange;
+  font-weight: bold;
+  font-family: play;
+}
+h1 {
+  text-align: center;
+  color: deeppink;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Verdana;
+}
+.myclass {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+.display {
+  float: left;
+  text-align: center;
+  color: red;
+  border-style: solid;
+  box-sizing: border-box;
+}

@@ -1,0 +1,142 @@
+<h1>Form Builder In Angular</h1>
+<div class="container-flex">
+  <div class="form">
+    <form [formGroup]="registrationForm">
+      <div class="row"></div>
+      <div class="col-8">
+        <div class="mb-3">
+          <label class="form-label" for="inputEmail">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputtext"
+            placeholder="Enter Name"
+            formControlName="username"
+            required
+            [class.is-invalid]="username.invalid && username.touched"
+          />
+          <div *ngIf="username.invalid && username.touched">
+            <small class="text-danger" *ngIf="username.errors?.required"
+              >Username Required</small
+            >
+            <small class="text-danger" *ngIf="username.errors?.minlength"
+              >Username Must Be 5 Characters</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="inputEmail">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            placeholder=" Enter Email"
+            formControlName="email"
+            required
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <div *ngIf="email.invalid && email.touched">
+            <small class="text-danger" *ngIf="email.errors?.required"
+              >Email Required</small
+            >
+            <small class="text-danger" *ngIf="email.errors?.email"
+              >Type must be email</small
+            >
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="inputPassword">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            placeholder=" Enter Password"
+            formControlName="password"
+            required
+            [class.is-invalid]="password.invalid && password.touched"
+          />
+          <div *ngIf="password.invalid && password.touched">
+            <small class="text-danger" *ngIf="password.errors?.required"
+              >Password Required</small
+            >
+            <small class="text-danger" *ngIf="password.errors?.minlength"
+              >Password must be 8 characters</small
+            >
+          </div>
+        </div>
+        <div formGroupName="address">
+          <div class="mb-3">
+            <label class="form-label" for="inputEmail">State</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputtext"
+              placeholder="Enter State"
+              formControlName="state"
+              required
+              [class.is-invalid]="state.invalid && state.touched"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="state.valid || state.untouched"
+              >State Required</small
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="inputEmail">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Enter City"
+              formControlName="city"
+              required
+              [class.is-invalid]="city.invalid && city.touched"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="city.valid || city.untouched"
+              >City Required</small
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="inputEmail">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Enter Address"
+              formControlName="address"
+              required
+              [class.is-invalid]="address.invalid && address.touched"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="address.valid || address.untouched"
+              >Address Required</small
+            >
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkRemember"
+              required
+            />
+            <label class="form-check-label" for="checkRemember"
+              >Remember me</label
+            >
+          </div>
+        </div>
+      </div>
+      <button class="display" (click)="displayitems()">Display</button>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+    <div class="myclass">
+      {{ registrationForm.value | json }}
+    </div>
+  </div>
+</div>
